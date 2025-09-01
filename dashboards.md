@@ -3,7 +3,7 @@
 <!-- ===== Example Viz 1 ===== -->
 <h2>Financial Banking Complaints (Tableau)</h2>
 <p>
-  <a href="/assets/fraud-thumb.jpg" target="_blank">
+  <a href="/assets/Dashboar 1.jpg" target="_blank">
     <img src="/assets/fraud-thumb.jpg" alt="Fraud Claims Overview thumbnail" style="max-width: 220px; border-radius: 8px; border: 1px solid #eee;">
   </a>
 </p>
