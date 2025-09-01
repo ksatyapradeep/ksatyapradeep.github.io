@@ -1,7 +1,7 @@
 # 📊 Dashboards
 
 <!-- ===== Example Viz 1 ===== -->
-<h2>Fraud Claims Overview (Tableau)</h2>
+<h2>Financial Banking Complaints (Tableau)</h2>
 <p>
   <a href="/assets/fraud-thumb.jpg" target="_blank">
     <img src="/assets/fraud-thumb.jpg" alt="Fraud Claims Overview thumbnail" style="max-width: 220px; border-radius: 8px; border: 1px solid #eee;">
