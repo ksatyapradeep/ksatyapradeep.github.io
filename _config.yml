@@ -1,5 +1,17 @@
-remote_theme: pages-themes/time-machine@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-title: [Pradeep Kodeboina]
-description: [Turning Data into insights]
+title: "Pradeep Kodeboina"
+theme: jekyll-theme-cayman   # or: minima, slate, modernist
+plugins: [jekyll-seo-tag]
+navbar:
+  - name: Home
+    link: /
+  - name: Projects
+    link: /projects
+  - name: Dashboards
+    link: /dashboards
+  - name: Skills
+    link: /skills
+  - name: Certifications
+    link: /certifications
+  - name: About
+    link: /about
+
