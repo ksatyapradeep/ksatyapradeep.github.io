@@ -76,6 +76,15 @@
     [data-theme="dark"] .project-card{ background:#0f172a; border-color:#1e293b; }
     [data-theme="dark"] .badge-soft{ background:#1e293b; color:#e2e8f0; }
     [data-theme="dark"] .dash-thumb{ border-color:#1e293b; }
+    /* Timeline */
+    .timeline { position: relative; margin-left: .5rem; padding-left: 1.25rem; }
+    .timeline::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(#e5e7eb,#94a3b8); }
+    .tl-item { position: relative; padding-left: 2.5rem; margin-bottom: 22px; }
+    .tl-dot { position: absolute; left: 0; top: .25rem; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .75rem; box-shadow: 0 0 0 3px #fff; border: 1px solid #e5e7eb; }
+    .tl-time { font-size: .85rem; color: #64748b; }
+    .tl-card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 14px; background: #fff; }
+    [data-theme="dark"] .timeline::before { background: #334155; }
+    [data-theme="dark"] .tl-card { background: #0f172a; border-color: #1e293b; }
   </style>
 </head>
 <body>
@@ -90,6 +99,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#dashboards">Dashboards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -224,6 +234,91 @@
       </div>
     </div>
   </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience & Education Timeline</h2>
+
+    <!-- Impact chips -->
+    <p class="mb-4">
+      <span class="badge-soft me-2">7+ yrs BI & Analytics</span>
+      <span class="badge-soft me-2">Insurance · Logistics · Healthcare</span>
+      <span class="badge-soft me-2">Power BI · Tableau · Python · SQL</span>
+      <span class="badge-soft">Available: Immediate</span>
+    </p>
+
+    <div class="timeline">
+
+      <!-- BACHELOR'S -->
+      <div class="tl-item" data-aos="fade-up">
+        <div class="tl-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="tl-card">
+          <div class="tl-time">Jul 2012 – May 2016</div>
+          <h5 class="mb-1">B.Tech, Computer Science</h5>
+          <div class="text-secondary">Vignan University, Guntur, India</div>
+        </div>
+      </div>
+
+      <!-- ORANGE LEAF -->
+      <div class="tl-item" data-aos="fade-up" data-aos-delay="50">
+        <div class="tl-dot"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="tl-card">
+          <div class="tl-time">Jul 2016 – Oct 2017</div>
+          <h5 class="mb-1">Data Analyst — Logistics Campaigns</h5>
+          <div class="text-secondary">Orange Leaf, India</div>
+          <ul class="small mt-2 mb-0">
+            <li>Analyzed campaign performance; improved engagement and targeting.</li>
+            <li>Built dashboards for web traffic and email KPIs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AMAZON (combined) -->
+      <div class="tl-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="tl-dot"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="tl-card">
+          <div class="tl-time">Nov 2017 – Jul 2021</div>
+          <h5 class="mb-1">Amazon — North America Ops</h5>
+          <div class="text-secondary">India (global teams)</div>
+          <ul class="small mt-2">
+            <li><strong>Data Analyst, Transportation Ops Support</strong> (Nov 2017 – Nov 2019)</li>
+            <li><strong>Senior Data Analyst, Last Mile Logistics</strong> (Dec 2019 – Jul 2021)</li>
+          </ul>
+          <ul class="small mb-0">
+            <li>Built QA/QC and KPI dashboards for SLA, backlog, route performance.</li>
+            <li>Partnered with data engineering on metadata standards & lineage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MASTER'S -->
+      <div class="tl-item" data-aos="fade-up" data-aos-delay="150">
+        <div class="tl-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="tl-card">
+          <div class="tl-time">Sep 2021 – May 2023</div>
+          <h5 class="mb-1">M.S., Data Analytics (AI &amp; ML)</h5>
+          <div class="text-secondary">Northeastern University, Boston, MA</div>
+        </div>
+      </div>
+
+      <!-- NATIONWIDE -->
+      <div class="tl-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="tl-dot"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="tl-card">
+          <div class="tl-time">Jul 2023 – Present</div>
+          <h5 class="mb-1">Data Analyst</h5>
+          <div class="text-secondary">Nationwide Insurance, Columbus, OH</div>
+          <ul class="small mt-2 mb-0">
+            <li>Fraud analytics dashboards & data pipelines (SQL, Python, Power BI, Snowflake).</li>
+            <li>Partnered with compliance & strategy to deliver decision-ready insights.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- SKILLS -->
   <section id="skills">
