@@ -113,6 +113,33 @@
         background: linear-gradient(#e5e7eb,#94a3b8);
       }
       .xp-split .xp-item{ padding-left:2.75rem; }
+      /* Hero typography */
+.hero-eyebrow{
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  margin-bottom: .25rem;
+  opacity: .95;
+}
+.hero-name{
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #111; /* black as requested */
+  margin: 0 0 .25rem 0;
+}
+.hero-tagline{
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  opacity: .95;
+  margin-bottom: 1rem;
+}
+      /* Make hero fill the first screen nicely */
+header.hero{
+  min-height: 92vh;
+  padding: 96px 0;           /* top/bottom space inside hero */
+  display: flex;
+  align-items: center;       /* vertically center the text */
+}
     }
   </style>
 </head>
@@ -141,11 +168,13 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero py-5" style="padding-top:120px; padding-bottom:120px;">
+  <header class="hero">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-          <h1 class="display-4 mb-3">Hi there, I'm Pradeep, a Data Analyst & Data Science Enthusiast</h1>
+          <div class="col-lg-8 text-start" data-aos="fade-up">
+          <p class="hero-eyebrow">Hi there, I’m</p>
+          <h1 class="hero-name">Pradeep</h1>
+          <p class="hero-tagline">a Data Analyst &amp; Data Science Enthusiast</p>
           <p class="lead mb-3">Data Analyst specialising in BI, fraud analytics, and data products.</p>
           <p class="h5"><span class="typed" id="typed"></span></p>
           <div class="mt-4">
