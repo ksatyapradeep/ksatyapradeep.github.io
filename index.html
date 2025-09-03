@@ -76,15 +76,7 @@
     [data-theme="dark"] .project-card{ background:#0f172a; border-color:#1e293b; }
     [data-theme="dark"] .badge-soft{ background:#1e293b; color:#e2e8f0; }
     [data-theme="dark"] .dash-thumb{ border-color:#1e293b; }
-    /* Timeline 
-    .timeline { position: relative; margin-left: .5rem; padding-left: 1.25rem; }
-    .timeline::before { content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(#e5e7eb,#94a3b8); }
-    .tl-item { position: relative; padding-left: 2.5rem; margin-bottom: 22px; }
-    .tl-dot { position: absolute; left: 0; top: .25rem; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .75rem; box-shadow: 0 0 0 3px #fff; border: 1px solid #e5e7eb; }
-    .tl-time { font-size: .85rem; color: #64748b; }
-    .tl-card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 14px; background: #fff; }
-    [data-theme="dark"] .timeline::before { background: #334155; }
-    [data-theme="dark"] .tl-card { background: #0f172a; border-color: #1e293b; }
+
     /* === Experience Timeline (card style) === */
     .xp { position:relative; margin-left:.5rem; padding-left:1.25rem; }
     .xp::before{ content:""; position:absolute; left:14px; top:0; bottom:0; width:2px;
@@ -104,6 +96,24 @@
     [data-theme="dark"] .xp::before{ background:#334155; }
     [data-theme="dark"] .xp-card{ background:#0f172a; border-color:#1e293b; }
     [data-theme="dark"] .xp-logo{ background:#0b1220; }
+
+    /* ===== Split timeline: 75% Work (left) / 25% Education (right) ===== */
+    @media (min-width: 992px){
+      .xp-split{
+        position: relative;
+        display: grid;
+        grid-template-columns: 3fr 1fr;   /* 75% | 25% */
+        gap: 32px;
+      }
+      /* Each column keeps its own left-side spine */
+      .xp-split .xp{ margin-left:.5rem; padding-left:1.25rem; position:relative; }
+      .xp-split .xp::before{
+        content:"";
+        position:absolute; left:14px; top:0; bottom:0; width:2px;
+        background: linear-gradient(#e5e7eb,#94a3b8);
+      }
+      .xp-split .xp-item{ padding-left:2.75rem; }
+    }
   </style>
 </head>
 <body>
@@ -143,7 +153,7 @@
             <a href="#dashboards" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-chart-line me-2"></i>Dashboards</a>
           </div>
           <div class="mt-3">
-            <a href="/assets/Pradeep_Kodeboina_Resume.pdf" class="link-light text-decoration-underline">Download Resume</a>
+            <a href="assets/Pradeep_Kodeboina_Resume.pdf" class="link-light text-decoration-underline">Download Resume</a>
           </div>
         </div>
       </div>
@@ -188,7 +198,7 @@
             <img class="project-img" src="https://placehold.co/800x450/png?text=Fraud+ML+Pipeline" alt="Fraud ML pipeline thumbnail">
             <div class="p-3">
               <div class="d-flex gap-2 mb-2">
-                <span class="badge-soft">Python</span><span class="badge-soft">Scikit‑learn</span>
+                <span class="badge-soft">Python</span><span class="badge-soft">Scikit-learn</span>
               </div>
               <h5 class="mb-1">Fraud Claim ML Pipeline</h5>
               <p class="mb-3 small text-secondary">Random Forest & Logistic Regression with PII masking and model monitoring.</p>
@@ -208,7 +218,7 @@
               <div class="d-flex gap-2 mb-2">
                 <span class="badge-soft">React</span><span class="badge-soft">Charts</span>
               </div>
-              <h5 class="mb-1">CareClinic AI‑Enhanced Prototype</h5>
+              <h5 class="mb-1">CareClinic AI-Enhanced Prototype</h5>
               <p class="mb-3 small text-secondary">Symptom tracker + AI insights with colorful charts and provider alerts.</p>
               <div class="d-flex gap-2">
                 <a class="btn btn-sm btn-outline-primary" href="https://careclinicprototype.netlify.app/" target="_blank"><i class="fa-solid fa-link me-1"></i>Live</a>
@@ -254,130 +264,121 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- EXPERIENCE (split 75/25) -->
   <section id="experience">
-  <div class="container">
-    <h2 class="section-title">Experience & Education Timeline</h2>
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
 
-    <!-- Impact chips (optional but recommended) -->
-    <p class="mb-4">
-      <span class="xp-chip me-2">7+ yrs BI & Analytics</span>
-      <span class="xp-chip me-2">Insurance · Logistics · Healthcare</span>
-      <span class="xp-chip me-2">Power BI · Tableau · Python · SQL</span>
-      <span class="xp-chip">Available: Immediate</span>
-    </p>
+      <!-- Impact chips -->
+      <p class="mb-4">
+        <span class="xp-chip me-2">7+ yrs BI & Analytics</span>
+        <span class="xp-chip me-2">Insurance · Logistics · Healthcare</span>
+        <span class="xp-chip me-2">Power BI · Tableau · Python · SQL</span>
+        <span class="xp-chip">Available: Immediate</span>
+      </p>
 
-    <div class="xp">
+      <div class="xp-split">
+        <!-- LEFT: WORK (75%) -->
+        <div>
+          <h5 class="mb-3">Work Experience</h5>
+          <div class="xp">
+            <!-- Orange Leaf -->
+            <div class="xp-item" data-aos="fade-up">
+              <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo"><img src="assets/orangeleaf-logo.png" alt="Orange Leaf"></div>
+                  <div>
+                    <p class="xp-role">Data Analyst — Logistics Campaigns</p>
+                    <div class="xp-meta">Orange Leaf · Jul 2016 – Oct 2017 · India</div>
+                  </div>
+                </div>
+                <ul class="small xp-bullets mb-0">
+                  <li>Analyzed campaign performance (SQL, GA); improved engagement & targeting.</li>
+                  <li>Built dashboards for traffic & email KPIs; ↑ donations by ~₹20K/month.</li>
+                </ul>
+              </div>
+            </div>
 
-      <!-- Bachelor's -->
-      <div class="xp-item" data-aos="fade-up">
-        <div class="xp-pin"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="xp-card">
-          <div class="xp-head">
-            <div class="xp-logo"><img src="/assets/vignan-logo.png" alt="Vignan University logo"></div>
-            <div>
-              <p class="xp-role">B.Tech, Computer Science</p>
-              <div class="xp-meta">Vignan University · Jul 2012 – May 2016</div>
+            <!-- Amazon -->
+            <div class="xp-item" data-aos="fade-up" data-aos-delay="50">
+              <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo"><img src="assets/amazon-logo.png" alt="Amazon"></div>
+                  <div>
+                    <p class="xp-role">Amazon — North America Ops (2 roles)</p>
+                    <div class="xp-meta">Nov 2017 – Jul 2021 · India (global teams)</div>
+                  </div>
+                </div>
+                <ul class="small mb-1">
+                  <li><strong>Data Analyst, Transportation Ops Support</strong> (Nov 2017 – Nov 2019)</li>
+                  <li><strong>Senior Data Analyst, Last Mile Logistics</strong> (Dec 2019 – Jul 2021)</li>
+                </ul>
+                <ul class="small xp-bullets mb-0">
+                  <li>QA/QC pipelines & KPI dashboards (Power BI) for SLA/backlog/route performance.</li>
+                  <li>Improved data accuracy by <strong>~18%</strong>; saved <strong>~$80K/yr</strong>; −20% scan errors.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Nationwide -->
+            <div class="xp-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
+              <div class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo"><img src="assets/nationwide-logo.png" alt="Nationwide"></div>
+                  <div>
+                    <p class="xp-role">Data Analyst</p>
+                    <div class="xp-meta">Nationwide Insurance · Jul 2023 – Present · Columbus, OH</div>
+                  </div>
+                </div>
+                <ul class="small xp-bullets mb-0">
+                  <li>Fraud analytics dashboards & preprocessing pipelines (SQL, Python, Power BI, Snowflake).</li>
+                  <li>Stakeholder-ready insights for executives & compliance; documentation & peer learning.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Orange Leaf -->
-      <div class="xp-item" data-aos="fade-up" data-aos-delay="50">
-        <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="xp-card">
-          <div class="xp-head">
-            <div class="xp-logo"><img src="/assets/orangeleaf-logo.png" alt="Orange Leaf logo"></div>
-            <div>
-              <p class="xp-role">Data Analyst — Logistics Campaigns</p>
-              <div class="xp-meta">Orange Leaf · Jul 2016 – Oct 2017 · India</div>
+        <!-- RIGHT: EDUCATION (25%)) -->
+        <div>
+          <h5 class="mb-3">Education</h5>
+          <div class="xp">
+            <!-- Bachelor's -->
+            <div class="xp-item" data-aos="fade-up">
+              <div class="xp-pin"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo"><img src="assets/vignan-logo.png" alt="Vignan University"></div>
+                  <div>
+                    <p class="xp-role">B.Tech, Computer Science</p>
+                    <div class="xp-meta">Vignan University · Jul 2012 – May 2016</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <ul class="small xp-bullets">
-            <li>Analyzed campaign performance (SQL, GA); improved engagement & targeting.</li>
-            <li>Built dashboards for traffic & email KPIs; ↑ donations by ~₹20K/month.</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Amazon (2 roles grouped) -->
-      <div class="xp-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="xp-card">
-          <div class="xp-head">
-            <div class="xp-logo"><img src="/assets/amazon-logo.png" alt="Amazon logo"></div>
-            <div>
-              <p class="xp-role">Amazon — North America Ops (2 roles)</p>
-              <div class="xp-meta">Nov 2017 – Jul 2021 · India (global teams)</div>
+            <!-- Master's -->
+            <div class="xp-item" data-aos="fade-up" data-aos-delay="50">
+              <div class="xp-pin"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="xp-card">
+                <div class="xp-head">
+                  <div class="xp-logo"><img src="assets/neu-logo.png" alt="Northeastern University"></div>
+                  <div>
+                    <p class="xp-role">M.S., Data Analytics (AI &amp; ML)</p>
+                    <div class="xp-meta">Northeastern University, Boston · Sep 2021 – May 2023</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <ul class="small mb-1">
-            <li><strong>Data Analyst, Transportation Ops Support</strong> (Nov 2017 – Nov 2019)</li>
-            <li><strong>Senior Data Analyst, Last Mile Logistics</strong> (Dec 2019 – Jul 2021)</li>
-          </ul>
-          <ul class="small xp-bullets">
-            <li>QA/QC pipelines & KPI dashboards (Power BI) for SLA/backlog/route performance.</li>
-            <li>Improved data accuracy by <strong>~18%</strong>; saved <strong>~$80K/yr</strong>; -20% scan errors.</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Master's -->
-      <div class="xp-item" data-aos="fade-up" data-aos-delay="150">
-        <div class="xp-pin"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="xp-card">
-          <div class="xp-head">
-            <div class="xp-logo"><img src="/assets/neu-logo.png" alt="Northeastern University logo"></div>
-            <div>
-              <p class="xp-role">M.S., Data Analytics (AI &amp; ML)</p>
-              <div class="xp-meta">Northeastern University, Boston · Sep 2021 – May 2023</div>
-            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Nationwide -->
-      <div class="xp-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="xp-pin"><i class="fa-solid fa-briefcase"></i></div>
-        <div class="xp-card">
-          <div class="xp-head">
-            <div class="xp-logo"><img src="/assets/nationwide-logo.png" alt="Nationwide Insurance logo"></div>
-            <div>
-              <p class="xp-role">Data Analyst</p>
-              <div class="xp-meta">Nationwide Insurance · Jul 2023 – Present · Columbus, OH</div>
-            </div>
-          </div>
-          <ul class="small xp-bullets">
-            <li>Fraud analytics dashboards & preprocessing pipelines (SQL, Python, Power BI, Snowflake).</li>
-            <li>Delivered decision-ready insights for executives/compliance; peer learning & documentation.</li>
-          </ul>
-        </div>
-      </div>
-      
-      /* ===== Split timeline: 75% Work (left) / 25% Education (right) ===== */
-      @media (min-width: 992px){
-        .xp-split{
-          position: relative;
-          display: grid;
-          grid-template-columns: 3fr 1fr;   /* 75% | 25% */
-          gap: 32px;
-        }
-        /* make each column keep its own left-side timeline spine */
-        .xp-split .xp{ margin-left:.5rem; padding-left:1.25rem; }
-        .xp-split .xp::before{
-          content:"";
-          position:absolute; left:14px; top:0; bottom:0; width:2px;
-          background: linear-gradient(#e5e7eb,#94a3b8);
-        }
-        .xp-split .xp-item{ padding-left:2.75rem; }
-      }
-      /* (dark mode colors for the spine already handled by your existing rules) */
-      
+      </div><!-- /xp-split -->
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- SKILLS -->
   <section id="skills">
@@ -410,7 +411,7 @@
           <div class="p-3 border rounded-4 h-100">
             <div class="mb-2 fw-bold">Certifications</div>
             <ul class="list-unstyled mb-0">
-              <li class="mb-2"><i class="fa-solid fa-certificate text-warning me-2"></i>Microsoft Power BI (PL‑300)</li>
+              <li class="mb-2"><i class="fa-solid fa-certificate text-warning me-2"></i>Microsoft Power BI (PL-300)</li>
               <li class="mb-2"><i class="fa-solid fa-certificate text-primary me-2"></i>Tableau Data Analyst</li>
               <li class="mb-2"><i class="fa-solid fa-certificate text-warning me-2"></i>AWS Data Analytics</li>
             </ul>
@@ -429,7 +430,7 @@
           <img src="https://placehold.co/640x760/png?text=Your+Photo" class="img-fluid rounded-4 border" alt="Pradeep portrait placeholder">
         </div>
         <div class="col-md-7" data-aos="fade-left">
-          <p class="lead">I turn messy data into decision‑ready insights. I’ve shipped analytics products in insurance, logistics, and healthcare — from data pipelines to executive dashboards.</p>
+          <p class="lead">I turn messy data into decision-ready insights. I’ve shipped analytics products in insurance, logistics, and healthcare — from data pipelines to executive dashboards.</p>
           <ul class="list-unstyled">
             <li class="mb-2"><i class="fa-solid fa-location-dot text-danger me-2"></i>Columbus, OH (open to relocate)</li>
             <li class="mb-2"><i class="fa-solid fa-envelope text-primary me-2"></i><a href="mailto:kodeboinapradeep@gmail.com">kodeboinapradeep@gmail.com</a></li>
@@ -450,7 +451,7 @@
             <h3 class="fw-bold mb-2">Let’s work together</h3>
             <p class="text-secondary mb-4">Have a role or project in mind? I’m available for immediate onboarding.</p>
             <a href="mailto:kodeboinapradeep@gmail.com" class="btn btn-brand btn-lg me-2"><i class="fa-solid fa-paper-plane me-2"></i>Email Me</a>
-            <a href="/assets/Pradeep_Kodeboina_Resume.pdf" class="btn btn-outline-secondary btn-lg"><i class="fa-solid fa-file-arrow-down me-2"></i>Resume (PDF)</a>
+            <a href="assets/Pradeep_Kodeboina_Resume.pdf" class="btn btn-outline-secondary btn-lg"><i class="fa-solid fa-file-arrow-down me-2"></i>Resume (PDF)</a>
           </div>
         </div>
       </div>
@@ -517,7 +518,6 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Theme toggle (persisted)
-    const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
     const applyTheme = t => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
     const saved = localStorage.getItem('theme');
