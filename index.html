@@ -201,6 +201,41 @@ header.hero{
   text-shadow: 0 0 10px rgba(22,163,74,.35);
 }
 
+/* Bigger, circular headshot in hero */
+.hero .row{ align-items: center; }  /* keep vertically centered on wide screens */
+
+.hero-pic{
+  width: clamp(220px, 28vw, 380px);
+  height: clamp(220px, 28vw, 380px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #fff;                          /* inner ring */
+  box-shadow: 0 0 0 6px rgba(22,163,74,.35);       /* outer emerald ring */
+}
+
+[data-theme="dark"] .hero-pic{
+  border-color: #0b1220;                           /* blends with dark bg */
+  box-shadow: 0 0 0 6px rgba(34,197,94,.45);
+}
+/* Ensure typed line is readable in both themes */
+.hero .typed,
+.hero .typed-cursor{
+  color: #1f2937 !important;   /* dark gray on light theme */
+  text-shadow: none !important;
+}
+
+[data-theme="dark"] .hero .typed,
+[data-theme="dark"] .hero .typed-cursor{
+  color: #e5e7eb !important;   /* light gray on dark theme */
+}
+/* Dark theme fixes for hero text */
+[data-theme="dark"] .hero-name{ color: #ffffff; }
+[data-theme="dark"] .hero-eyebrow{ color: #cbd5e1; }
+[data-theme="dark"] .hero-tagline{ color: #cbd5e1; }
+
+/* Navbar links readable in dark theme */
+.navbar .nav-link{ color: #334155; }                 /* light theme */
+[data-theme="dark"] .navbar .nav-link{ color: #e2e8f0; }  /* dark theme */
 
     }
   </style>
@@ -238,7 +273,7 @@ header.hero{
     <!-- LEFT: text -->
     <div class="col-lg-7 text-start" data-aos="fade-up">
       <p class="hero-eyebrow">Hi there, I’m</p>
-      <h1 class="hero-name">Pradeep<br>Kodeboina</h1>
+      <h1 class="hero-name">Pradeep Kodeboina</h1>
       <p class="hero-tagline">Data Product Owner/Analyst &amp; Data Science Enthusiast</p>
       <p class="h5 mb-4" id="typed-wrap"><span class="typed" id="typed"></span></p>
 
@@ -252,9 +287,9 @@ header.hero{
     </div>
 
     <!-- RIGHT: profile picture -->
-    <div class="col-lg-5 text-center text-lg-end mt-5 mt-lg-0" data-aos="zoom-in">
+    <div class="col-lg-5 col-xl-6 text-center text-lg-end mt-5 mt-lg-0" data-aos="zoom-in">
       <!-- Put your headshot at assets/profile.jpg -->
-      <img src="assets/profile.jpg" alt="Pradeep Kodeboina" class="hero-pic">
+      <img src="assets/Profile pic.JPG" alt="Pradeep Kodeboina" class="hero-pic">
     </div>
   </div>
 </div>
