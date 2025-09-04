@@ -23,10 +23,8 @@
     body{ font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
     /* Hero */
     .hero{
-      background: radial-gradient(1000px 600px at 10% 0%, #22c55e20, transparent 60%),
-                  radial-gradient(1200px 800px at 90% 0%, #06b6d420, transparent 60%),
-                  linear-gradient(180deg, #0ea5e9 0%, #14b8a6 70%, #16a34a 100%);
-      color: #fff;
+      background: none !important;
+      color: inherit;          /* use normal dark text */
     }
     .hero h1{ font-weight: 800; letter-spacing:-0.02em; }
     .hero .typed{ color:#ffe; text-shadow: 0 1px 0 rgba(0,0,0,.15); }
@@ -140,18 +138,82 @@ header.hero{
   display: flex;
   align-items: center;       /* vertically center the text */
 }
+      /* Navbar spacing + theme-aware colors */
+body{ padding-top: 70px; } /* prevent content hiding under fixed navbar */
+
+.navbar-nav{ gap: 18px; }                 /* more space between items */
+.navbar .nav-link{ font-weight: 600; }    /* a bit bolder for readability */
+
+/* Light vs dark nav background */
+[data-theme="dark"] .navbar{ 
+  background:#0b1220 !important; 
+  border-color:#1e293b !important;
+}
+    /* Fill the first screen so Projects start below */
+header.hero{
+  min-height: 92vh;   /* try 95–100vh if you want even more space */
+  padding: 96px 0;    /* internal top/bottom space inside hero */
+  display: flex;
+  align-items: center; /* vertically center the text block */
+}
+
+      /* Small top buffer above the Projects section */
+#projects{ padding-top: 96px; }
+
+      /* Hero typography (left-aligned) */
+.hero-eyebrow{
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  margin-bottom: .25rem;
+  color: #1f2937;
+}
+.hero-name{
+  font-weight: 800;
+  font-size: clamp(3rem, 6.2vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #111; /* black */
+  margin: 0 0 .25rem 0;
+}
+.hero-tagline{
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: #334155;
+  margin-bottom: .5rem;
+}
+
+/* Round profile photo with brand ring */
+.hero-pic{
+  width: clamp(180px, 35vw, 260px);
+  height: clamp(180px, 35vw, 260px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #fff;
+  box-shadow: 0 0 0 6px rgba(22,163,74,.35); /* outer ring (emerald) */
+}
+[data-theme="dark"] .hero-pic{
+  border-color: #0b1220;
+  box-shadow: 0 0 0 6px rgba(34,197,94,.45);
+}
+
+      /* Active section highlight ("glow") */
+.navbar .nav-link.active{
+  color: var(--brand) !important;
+  text-shadow: 0 0 10px rgba(22,163,74,.35);
+}
+
+
     }
   </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="80" tabindex="0">
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100">
+  <nav class="navbar navbar-expand-lg fixed-top bg-white border-bottom shadow-sm">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-lg-4" id="nav">
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#dashboards">Dashboards</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
@@ -159,7 +221,10 @@ header.hero{
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item">
-            <button id="themeBtn" class="btn btn-sm btn-light ms-lg-3 theme-toggle"><i class="fa-solid fa-circle-half-stroke me-1"></i><span>Theme</span></button>
+            <button id="themeBtn" class="btn btn-sm btn-outline-secondary ms-lg-3" aria-label="Toggle theme">
+  <i id="themeIcon" class="fa-solid fa-sun"></i>
+</button>
+
           </li>
         </ul>
       </div>
@@ -169,22 +234,31 @@ header.hero{
   <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <div class="row align-items-center">
-          <div class="col-lg-8 text-start" data-aos="fade-up">
-          <p class="hero-eyebrow">Hi there, I’m</p>
-          <h1 class="hero-name">Pradeep</h1>
-          <h2 class="hero-name">Kodeboina</h2>
-          <p class="hero-tagline">Data Product Owner/Analyst &amp; Data Science Enthusiast</p>
-          <p class="h5"><span class="typed" id="typed"></span></p>
-          <div class="mt-4">
-            <a href="#projects" class="btn btn-light btn-lg me-2"><i class="fa-solid fa-rocket me-2"></i>See Projects</a>
-            <a href="#dashboards" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-chart-line me-2"></i>Dashboards</a>
-          </div>
-          <div class="mt-3">
-            <a href="assets/Pradeep_Kodeboina_Resume.pdf" class="link-light text-decoration-underline">Download Resume</a>
-          </div>
-        </div>
+  <div class="row align-items-center">
+    <!-- LEFT: text -->
+    <div class="col-lg-7 text-start" data-aos="fade-up">
+      <p class="hero-eyebrow">Hi there, I’m</p>
+      <h1 class="hero-name">Pradeep<br>Kodeboina</h1>
+      <p class="hero-tagline">Data Product Owner/Analyst &amp; Data Science Enthusiast</p>
+      <p class="h5 mb-4" id="typed-wrap"><span class="typed" id="typed"></span></p>
+
+      <div class="mt-3">
+        <a href="#projects" class="btn btn-dark btn-lg me-2"><i class="fa-solid fa-rocket me-2"></i>See Projects</a>
+        <a href="#dashboards" class="btn btn-outline-dark btn-lg"><i class="fa-solid fa-chart-line me-2"></i>Dashboards</a>
       </div>
+      <div class="mt-3">
+        <a href="assets/Pradeep_Kodeboina_Resume.pdf" class="text-decoration-underline">Download Resume</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: profile picture -->
+    <div class="col-lg-5 text-center text-lg-end mt-5 mt-lg-0" data-aos="zoom-in">
+      <!-- Put your headshot at assets/profile.jpg -->
+      <img src="assets/profile.jpg" alt="Pradeep Kodeboina" class="hero-pic">
+    </div>
+  </div>
+</div>
+
     </div>
   </header>
 
@@ -564,15 +638,24 @@ header.hero{
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Theme toggle (persisted)
-    const themeBtn = document.getElementById('themeBtn');
-    const applyTheme = t => { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
-    const saved = localStorage.getItem('theme');
-    if(saved){ applyTheme(saved); }
-    themeBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(current);
-    });
+    // Theme toggle (persisted) + icon swap (sun=light, moon=dark)
+const themeBtn = document.getElementById('themeBtn');
+const themeIcon = document.getElementById('themeIcon');
+const applyTheme = (t) => {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  if (themeIcon){
+    themeIcon.className = t === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  }
+};
+// initialize from storage (default light)
+applyTheme(localStorage.getItem('theme') || 'light');
+
+themeBtn?.addEventListener('click', () => {
+  const next = (document.documentElement.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
+  applyTheme(next);
+});
+
 
     // Project filter
     const filterBtns = document.querySelectorAll('.filter [data-filter]');
@@ -587,6 +670,11 @@ header.hero{
           c.style.display = show ? '' : 'none';
         });
       });
+
+      // Bootstrap ScrollSpy (activates .active on navbar links as you scroll)
+new bootstrap.ScrollSpy(document.body, { target: '#nav', offset: 80 });
+
+      
     });
   </script>
 </body>
