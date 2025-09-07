@@ -327,37 +327,101 @@
 
 
   <!-- DASHBOARDS -->
-  <section id="dashboards" class="bg-light">
-    <div class="container-xxl">
-      <h2 class="section-title">Dashboards</h2>
-      <div class="row g-4">
-        <!-- Tableau -->
-        <div class="col-lg-6" data-aos="fade-right">
-          <div class="p-3 border rounded-4 h-100 bg-white">
-            <img class="dash-thumb mb-3" src="https://placehold.co/960x540/png?text=Tableau+Dashboard+Thumbnail" alt="Tableau dashboard thumbnail">
-            <h5 class="mb-2"><i class="fa-brands fa-tableau me-2"></i>Fraud Claims Overview (Tableau)</h5>
-            <p class="small text-secondary">Interactive KPIs and trends for claim anomaly detection.</p>
-            <div class="d-flex gap-2">
-              <button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#tableauModal"><i class="fa-solid fa-eye me-2"></i>View</button>
-              <a class="btn btn-outline-secondary" href="https://public.tableau.com/app/profile/satya.pradeep.kodeboina/vizzes" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau</a>
-            </div>
-          </div>
-        </div>
-        <!-- Power BI -->
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="p-3 border rounded-4 h-100 bg-white">
-            <img class="dash-thumb mb-3" src="https://placehold.co/960x540/png?text=Power+BI+Dashboard+Thumbnail" alt="Power BI dashboard thumbnail">
-            <h5 class="mb-2"><i class="fa-brands fa-microsoft me-2"></i>Logistics KPI Tracker (Power BI)</h5>
-            <p class="small text-secondary">SLA, inventory, and route performance in one view.</p>
-            <div class="d-flex gap-2">
-              <button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#pbiModal"><i class="fa-solid fa-eye me-2"></i>View</button>
-              <a class="btn btn-outline-secondary" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open in Power BI</a>
-            </div>
+<section id="dashboards" class="bg-light">
+  <div class="container-xxl">
+    <h2 class="section-title">Dashboards</h2>
+
+    <div class="row g-4">
+      <!-- Financial Banking Complaints -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="p-3 border rounded-4 h-100 bg-white">
+          <img class="dash-thumb mb-3" src="assets/db_financial_banking_complaints.jpg" alt="Financial Banking Complaints dashboard">
+          <h5 class="mb-2">Financial Banking Complaints</h5>
+          <p class="small text-secondary">Complaint volume, categories, sentiment & geo analysis.</p>
+          <div class="d-flex gap-2">
+            <!-- Paste this viz’s EMBED link in data-embed -->
+            <button class="btn btn-brand open-viz" data-embed="<div class='tableauPlaceholder' id='viz1757269144977' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinancialBankingComplaints&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FinancialBankingComplaints&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;FinancialBankingComplaints&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757269144977');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1400px';vizElement.style.height='1027px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1400px';vizElement.style.height='1027px';} else { vizElement.style.width='100%';vizElement.style.height='2727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>" data-bs-toggle="modal" data-bs-target="#vizModal">
+              <i class="fa-solid fa-eye me-2"></i>View
+            </button>
+            <a class="btn btn-outline-secondary" href="https://public.tableau.com/views/FinancialBankingComplaints/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau
+            </a>
           </div>
         </div>
       </div>
+
+      <!-- Transactions Risk Analysis Dashboard -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="p-3 border rounded-4 h-100 bg-white">
+          <img class="dash-thumb mb-3" src="assets/db_transactions_risk.jpg" alt="Transactions Risk Analysis dashboard">
+          <h5 class="mb-2">Transactions Risk Analysis</h5>
+          <p class="small text-secondary">KPI trends, high-risk segments, anomaly flags.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-brand open-viz" data-embed="<div class='tableauPlaceholder' id='viz1757269255918' style='position: relative'><noscript><a href='#'><img alt='Transcations Risk Analysis Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TransactionsRiskAnalysisDashboard&#47;TranscationsRiskAnalysisDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TransactionsRiskAnalysisDashboard&#47;TranscationsRiskAnalysisDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TransactionsRiskAnalysisDashboard&#47;TranscationsRiskAnalysisDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757269255918');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1800px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1800px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>" data-bs-toggle="modal" data-bs-target="#vizModal">
+              <i class="fa-solid fa-eye me-2"></i>View
+            </button>
+            <a class="btn btn-outline-secondary" href="https://public.tableau.com/views/TransactionsRiskAnalysisDashboard/TranscationsRiskAnalysisDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Super Store dashboard -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="p-3 border rounded-4 h-100 bg-white">
+          <img class="dash-thumb mb-3" src="assets/db_superstore.jpg" alt="Super Store dashboard">
+          <h5 class="mb-2">Super Store</h5>
+          <p class="small text-secondary">Sales, profit, category & region drill-downs.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-brand open-viz" data-embed="<div class='tableauPlaceholder' id='viz1757269292336' style='position: relative'><noscript><a href='#'><img alt='Superstore ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;Superstoredashboard_17047646177270&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Superstoredashboard_17047646177270&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;Superstoredashboard_17047646177270&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757269292336');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1527px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>" data-bs-toggle="modal" data-bs-target="#vizModal">
+              <i class="fa-solid fa-eye me-2"></i>View
+            </button>
+            <a class="btn btn-outline-secondary" href="https://public.tableau.com/views/Superstoredashboard_17047646177270/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Urban Value Dashboard Metrics -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="p-3 border rounded-4 h-100 bg-white">
+          <img class="dash-thumb mb-3" src="assets/db_urban_value.jpg" alt="Urban Value Dashboard Metrics">
+          <h5 class="mb-2">Urban Value Dashboard Metrics</h5>
+          <p class="small text-secondary">Payment type mix, location comparisons, top products.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-brand open-viz" data-embed="<div class='tableauPlaceholder' id='viz1757269324149' style='position: relative'><noscript><a href='#'><img alt='Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ur&#47;UrbanValueDashboardMetrics&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='UrbanValueDashboardMetrics&#47;Dashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ur&#47;UrbanValueDashboardMetrics&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757269324149');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1027px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>" data-bs-toggle="modal" data-bs-target="#vizModal">
+              <i class="fa-solid fa-eye me-2"></i>View
+            </button>
+            <a class="btn btn-outline-secondary" href="https://public.tableau.com/views/UrbanValueDashboardMetrics/Dashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Winter Olympics -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="p-3 border rounded-4 h-100 bg-white">
+          <img class="dash-thumb mb-3" src="assets/db_winter_olympics.jpg" alt="Winter Olympics dashboard">
+          <h5 class="mb-2">Winter Olympics</h5>
+          <p class="small text-secondary">Medal tally, athletes by discipline & country trends.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-brand open-viz" data-embed="<div class='tableauPlaceholder' id='viz1757269366445' style='position: relative'><noscript><a href='#'><img alt='Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wi&#47;Winter_Olympics_2022_Final_Dashboard_Pradeep_Kodeboina&#47;Dashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Winter_Olympics_2022_Final_Dashboard_Pradeep_Kodeboina&#47;Dashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wi&#47;Winter_Olympics_2022_Final_Dashboard_Pradeep_Kodeboina&#47;Dashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1757269366445');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1177px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>" data-bs-toggle="modal" data-bs-target="#vizModal">
+              <i class="fa-solid fa-eye me-2"></i>View
+            </button>
+            <a class="btn btn-outline-secondary" href="https://public.tableau.com/views/Winter_Olympics_2022_Final_Dashboard_Pradeep_Kodeboina/Dashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Open on Tableau
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
 
 
@@ -680,55 +744,21 @@
 
 
 
-
-  <!-- TABLEAU MODAL -->
-  <div class="modal fade" id="tableauModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Tableau · Fraud Claims Overview</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <!-- Replace the src below with your Tableau EMBED link -->
-          <iframe src="REPLACE_TABLEAU_EMBED_URL&:showVizHome=no&:embed=true&:toolbar=no" width="100%" height="720" frameborder="0" allowfullscreen></iframe>
-        </div>
+  <!-- VIZ MODAL (reusable) -->
+<div class="modal fade" id="vizModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dashboard Viewer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe id="vizFrame" src="" width="100%" height="720" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- POWER BI MODAL -->
-  <div class="modal fade" id="pbiModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Power BI · Logistics KPI Tracker</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <!-- Replace the src below with your Power BI Publish-to-Web link -->
-          <iframe src="REPLACE_PBI_EMBED_URL" width="100%" height="720" frameborder="0" allowfullscreen="true"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -792,6 +822,17 @@
         cards.forEach(c => c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none');
       });
     });
+    // Reusable viz modal loader
+document.querySelectorAll('.open-viz').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const url = btn.getAttribute('data-embed'); // paste EMBED link here
+    document.getElementById('vizFrame').src = url;
+  });
+});
+// Clear iframe on close to stop background downloads
+document.getElementById('vizModal')?.addEventListener('hidden.bs.modal', () => {
+  document.getElementById('vizFrame').src = '';
+});
   </script>
 </body>
 </html>
