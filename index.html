@@ -103,6 +103,17 @@
     [data-theme="dark"] .project-card{ background:#0f172a; border-color:#1e293b; }
     [data-theme="dark"] .badge-soft{ background:#1e293b; color:#e2e8f0; }
     [data-theme="dark"] .dash-thumb{ border-color:#1e293b; }
+
+    /* certificate card images */
+.cert-img{
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;        /* use 'contain' if you prefer no cropping */
+  background: #fff;         /* keeps vendor logos on white */
+  border-bottom: 1px solid #e5e7eb;
+}
+[data-theme="dark"] .cert-img{ background:#0b1220; border-color:#1e293b; }
+
   </style>
 </head>
 
@@ -138,6 +149,7 @@
           <li class="nav-item"><a class="nav-link" href="#dashboards">Dashboards</a></li>
           <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item">
@@ -645,6 +657,107 @@
 
 
 
+
+
+
+
+
+
+  <!-- CERTIFICATIONS -->
+<section id="certifications" class="bg-light">
+  <div class="container-xxl">
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="row g-4">
+      <!-- PL-300 -->
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+        <div class="project-card h-100">
+          <img class="cert-img" src="assets/Microsoft_Power_BI_Certification.png" alt="Microsoft Power BI Data Analyst (PL-300)">
+          <div class="p-3">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="badge-soft">Microsoft</span>
+              <span class="badge-soft">Power BI</span>
+              <span class="badge-soft">DAX</span>
+            </div>
+            <h5 class="mb-1">Microsoft Certified: Power BI Data Analyst (PL-300)</h5>
+            <p class="small text-secondary mb-3">Model data, DAX, visuals, governance & deployment.</p>
+            <div class="d-flex gap-2">
+              <!-- Replace with your public verification link -->
+              <a class="btn btn-sm btn-outline-primary" href="https://learn.microsoft.com/en-us/users/pradeepkodeboina/credentials/220e938e6a96a915" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Verify
+              </a>
+              <!-- Optional: link to your PDF badge/cert -->
+              <a class="btn btn-sm btn-outline-secondary" href="assets/Microsoft_Power_BI_Certification.png" target="_blank">
+                <i class="fa-solid fa-file-pdf me-1"></i> PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tableau Data Analyst -->
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="project-card h-100">
+          <img class="cert-img" src="assets/Tableau_Certification.jpg" alt="Tableau Data Analyst">
+          <div class="p-3">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="badge-soft">Tableau</span>
+              <span class="badge-soft">Visual Analytics</span>
+              <span class="badge-soft">Dashboards</span>
+            </div>
+            <h5 class="mb-1">Tableau Certified Data Analyst</h5>
+            <p class="small text-secondary mb-3">Prep, build, publish & govern data-driven dashboards.</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-outline-primary" href="https://www.udemy.com/certificate/UC-9a26a576-2d5e-46bb-892d-57bdebd05329/" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Verify
+              </a>
+              <a class="btn btn-sm btn-outline-secondary" href="assets/Tableau_Certification.jpg" target="_blank">
+                <i class="fa-solid fa-file-pdf me-1"></i> PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS Data Analytics -->
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-card h-100">
+          <img class="cert-img" src="assets/cert_aws_data_analytics.png" alt="AWS Certified Data Analytics">
+          <div class="p-3">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+              <span class="badge-soft">AWS</span>
+              <span class="badge-soft">Data Analytics</span>
+              <span class="badge-soft">Cloud</span>
+            </div>
+            <h5 class="mb-1">AWS Certified Data Analytics</h5>
+            <p class="small text-secondary mb-3">Ingest, store, process, and visualize at scale on AWS.</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-outline-primary" href="REPLACE_WITH_YOUR_AWS_VERIFY_URL" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Verify
+              </a>
+              <a class="btn btn-sm btn-outline-secondary" href="assets/certificates/aws_data_analytics.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf me-1"></i> PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (Optional) add more cards the same way -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
