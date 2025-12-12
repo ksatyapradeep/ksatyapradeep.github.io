@@ -114,6 +114,133 @@
 }
 [data-theme="dark"] .cert-img{ background:#0b1220; border-color:#1e293b; }
 
+
+        /* ===== CHATBOT WIDGET ===== */
+    .chatbot-toggle {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      z-index: 9999;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+      background: var(--brand);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .chatbot-toggle:hover {
+      filter: brightness(0.95);
+    }
+
+    .chatbot-window {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      width: 320px;
+      max-width: 90vw;
+      max-height: 65vh;
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+      background: #ffffff;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9999;
+      border: 1px solid #e5e7eb;
+    }
+
+    [data-theme="dark"] .chatbot-window {
+      background: #020617;
+      border-color: #1e293b;
+    }
+
+    .chatbot-header {
+      padding: 10px 14px;
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .chatbot-body {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+    }
+
+    .chatbot-message {
+      padding: 8px 10px;
+      border-radius: 10px;
+      max-width: 90%;
+      line-height: 1.3;
+    }
+
+    .chatbot-message.bot {
+      background: #eff6ff;
+      align-self: flex-start;
+    }
+
+    .chatbot-message.user {
+      background: #e5f9f0;
+      align-self: flex-end;
+    }
+
+    [data-theme="dark"] .chatbot-message.bot {
+      background: #020617;
+      border: 1px solid #1e293b;
+    }
+
+    [data-theme="dark"] .chatbot-message.user {
+      background: #022c22;
+      border: 1px solid #064e3b;
+    }
+
+    .chatbot-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .chatbot-option-btn {
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      padding: 4px 9px;
+      font-size: 0.8rem;
+      background: #f9fafb;
+      cursor: pointer;
+    }
+
+    .chatbot-option-btn:hover {
+      background: #e5e7eb;
+    }
+
+    [data-theme="dark"] .chatbot-option-btn {
+      background: #020617;
+      border-color: #1f2937;
+      color: #e5e7eb;
+    }
+
+    .chatbot-close-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -868,7 +995,25 @@
 
 
 
+  <!-- CHATBOT WIDGET -->
+  <button class="chatbot-toggle" id="pkChatToggle" aria-label="Open portfolio assistant">
+    <i class="fa-solid fa-comments"></i>
+  </button>
 
+  <div class="chatbot-window" id="pkChatWindow">
+    <div class="chatbot-header">
+      <span>Pradeep’s Portfolio Assistant</span>
+      <button class="chatbot-close-btn" id="pkChatClose" aria-label="Close chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="chatbot-body" id="pkChatBody">
+      <!-- JS will fill this -->
+    </div>
+  </div>
+
+
+  
 
 
 
@@ -988,6 +1133,230 @@ document.querySelectorAll('.open-viz').forEach(btn => {
 document.getElementById('vizModal')?.addEventListener('hidden.bs.modal', () => {
   document.getElementById('vizFrame').src = '';
 });
+
+    document.getElementById('vizModal')?.addEventListener('hidden.bs.modal', () => {
+  document.getElementById('vizFrame').src = '';
+});
+
+// ==== PRADEEP CHATBOT LOGIC STARTS HERE ====
+    // ==== PRADEEP CHATBOT LOGIC STARTS HERE ====
+    (function () {
+      const chatToggle = document.getElementById('pkChatToggle');
+      const chatWindow = document.getElementById('pkChatWindow');
+      const chatBody = document.getElementById('pkChatBody');
+      const chatClose = document.getElementById('pkChatClose');
+
+      if (!chatToggle || !chatWindow || !chatBody) return;
+
+      // Simple conversation tree
+      const chatFlow = {
+        start: {
+          text: "Hi! 👋 I’m Pradeep’s portfolio assistant.\n\nWho are you today?",
+          options: [
+            { label: "Recruiter", next: "recruiter_menu" },
+            { label: "Hiring Manager", next: "hm_menu" },
+            { label: "Just browsing", next: "browsing_menu" },
+            { label: "Friend", next: "friend_menu" },
+            { label: "Other", next: "other_menu" }
+          ]
+        },
+        recruiter_menu: {
+          text: "Nice to meet you! I’ll keep things short and recruiter-friendly. What would you like to know?",
+          options: [
+            { label: "Quick profile summary", next: "rec_summary" },
+            { label: "Location & relocation", next: "rec_location" },
+            { label: "Visa / work authorization", next: "rec_visa" },
+            { label: "Availability / notice", next: "rec_availability" },
+            { label: "Why he’s exploring new roles", next: "rec_why" },
+            { label: "Resume & contact", next: "rec_contact" },
+            { label: "Go back", next: "start" }
+          ]
+        },
+        hm_menu: {
+          text: "Welcome! What’s most helpful for you right now?",
+          options: [
+            { label: "What kind of problems he solves", next: "hm_problems" },
+            { label: "Key projects / case studies", next: "hm_projects" },
+            { label: "Tech stack & tools", next: "hm_stack" },
+            { label: "How he works with stakeholders", next: "hm_stakeholders" },
+            { label: "Contact details", next: "rec_contact" },
+            { label: "Go back", next: "start" }
+          ]
+        },
+        browsing_menu: {
+          text: "Nice! Want a quick guide to the site?",
+          options: [
+            { label: "30-second intro", next: "br_intro" },
+            { label: "Best projects to see", next: "br_projects" },
+            { label: "Dashboards", next: "br_dashboards" },
+            { label: "I’ll explore on my own", next: "br_free" },
+            { label: "Go back", next: "start" }
+          ]
+        },
+        friend_menu: {
+          text: "Hey friend 😄 Thanks for visiting! What do you want to know?",
+          options: [
+            { label: "What are you working on?", next: "fr_work" },
+            { label: "How can I support you?", next: "fr_support" },
+            { label: "Go back", next: "start" }
+          ]
+        },
+        other_menu: {
+          text: "No worries! What brought you here today?",
+          options: [
+            { label: "I’m checking your work for collaboration", next: "ot_collab" },
+            { label: "I’m just curious about projects", next: "br_projects" },
+            { label: "I have a specific question (email)", next: "ot_question" },
+            { label: "Go back", next: "start" }
+          ]
+        },
+
+        // ==== RECRUITER ANSWERS ====
+        rec_summary: {
+          text: "Pradeep is a BI & Data Analyst with experience across insurance, logistics, and healthcare. He works with SQL, Python, Power BI, Tableau, and cloud tools to turn data into decision-focused dashboards and analytics.",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+        rec_location: {
+          text: "He is currently based in Columbus, Ohio and open to relocation within the U.S., depending on the role and team fit.",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+        rec_visa: {
+          text: "You can find the most up-to-date details on work authorization in his resume or by emailing him directly at kodeboinapradeep@gmail.com so he can share context specific to your role and timeline.",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+        rec_availability: {
+          text: "He is available to start shortly after offer acceptance (exact timing can be aligned with your onboarding schedule).",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+        rec_why: {
+          text: "He’s looking for roles where he can own end-to-end analytics solutions – from data modeling to stakeholder storytelling – and have direct impact on business decisions and product strategy.",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+        rec_contact: {
+          text: "Best ways to reach Pradeep:\n\n• Email: kodeboinapradeep@gmail.com\n• LinkedIn: linkedin.com/in/pradeep-k1994/\n\nYou can also download his resume from the top of this page.",
+          options: [{ label: "Back", next: "recruiter_menu" }]
+        },
+
+        // ==== HIRING MANAGER ANSWERS ====
+        hm_problems: {
+          text: "He typically works on: \n• Building BI dashboards and reports that teams actually use\n• Investigating root causes behind KPI movements\n• Designing metrics and data models to support decision-making\n• Collaborating with stakeholders to turn questions into data solutions.",
+          options: [{ label: "Back", next: "hm_menu" }]
+        },
+        hm_projects: {
+          text: "Good starting points:\n\n• Flight Delay Prediction – combining ML with BI\n• Employee Attrition – HR-focused analytics\n• Fraud / risk dashboards – insurance & financial context\n\nYou can explore details in the Projects and Dashboards sections.",
+          options: [{ label: "Back", next: "hm_menu" }]
+        },
+        hm_stack: {
+          text: "Core stack: SQL, Python (Pandas, etc.), Power BI, Tableau, Excel, plus experience with cloud data platforms and ETL / data quality workflows.",
+          options: [{ label: "Back", next: "hm_menu" }]
+        },
+        hm_stakeholders: {
+          text: "Used to working with operations, product, and leadership: gathering requirements, designing metrics, sharing insights in simple language, and iterating based on feedback.",
+          options: [{ label: "Back", next: "hm_menu" }]
+        },
+
+        // ==== BROWSING ANSWERS ====
+        br_intro: {
+          text: "This site is a snapshot of Pradeep’s journey as a BI & Data Analyst – projects, dashboards, skills, and experience across multiple domains.",
+          options: [{ label: "Back", next: "browsing_menu" }]
+        },
+        br_projects: {
+          text: "You can scroll down to the Featured Projects section to see machine learning and BI case studies with short outcome summaries.",
+          options: [{ label: "Back", next: "browsing_menu" }]
+        },
+        br_dashboards: {
+          text: "The Dashboards section showcases Tableau and Power BI work, focusing on real-world KPIs and storytelling for business users.",
+          options: [{ label: "Back", next: "browsing_menu" }]
+        },
+        br_free: {
+          text: "Awesome! Feel free to explore the sections in the navbar. If you need quick info later, you can reopen this assistant anytime.",
+          options: [{ label: "Back to start", next: "start" }]
+        },
+
+        // ==== FRIEND ANSWERS ====
+        fr_work: {
+          text: "Mostly data analytics and BI work — building dashboards, doing deep dives, and refining this portfolio for new opportunities.",
+          options: [{ label: "Back", next: "friend_menu" }]
+        },
+        fr_support: {
+          text: "If you know any teams hiring Data / BI Analysts, feel free to connect them with this site or my LinkedIn. Your referrals mean a lot 😊",
+          options: [{ label: "Back", next: "friend_menu" }]
+        },
+
+        // ==== OTHER ANSWERS ====
+        ot_collab: {
+          text: "For collaborations or side projects, the best way is to email a short description of what you’re working on to: kodeboinapradeep@gmail.com",
+          options: [{ label: "Back", next: "other_menu" }]
+        },
+        ot_question: {
+          text: "For specific questions, please email: kodeboinapradeep@gmail.com with a short summary and any timelines. He’ll respond as soon as he can.",
+          options: [{ label: "Back", next: "other_menu" }]
+        }
+      };
+
+      function clearChat() {
+        chatBody.innerHTML = "";
+      }
+
+      function addMessage(text, from = "bot") {
+        const msg = document.createElement('div');
+        msg.className = `chatbot-message ${from}`;
+        msg.textContent = text;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function renderNode(nodeName) {
+        const node = chatFlow[nodeName];
+        if (!node) return;
+        clearChat();
+        addMessage(node.text, "bot");
+
+        const optWrapper = document.createElement('div');
+        optWrapper.className = "chatbot-options";
+
+        (node.options || []).forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = "chatbot-option-btn";
+          btn.textContent = opt.label;
+          btn.addEventListener('click', () => {
+            addMessage(opt.label, "user");
+            setTimeout(() => renderNode(opt.next), 300);
+          });
+          optWrapper.appendChild(btn);
+        });
+
+        chatBody.appendChild(optWrapper);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function openChat() {
+        chatWindow.style.display = "flex";
+        renderNode("start");
+      }
+
+      function closeChat() {
+        chatWindow.style.display = "none";
+      }
+
+      chatToggle.addEventListener('click', () => {
+        const isVisible = chatWindow.style.display === "flex";
+        if (isVisible) {
+          closeChat();
+        } else {
+          openChat();
+        }
+      });
+
+      chatClose.addEventListener('click', closeChat);
+    })();
+    // ==== PRADEEP CHATBOT LOGIC ENDS HERE ====
+
+// ==== PRADEEP CHATBOT LOGIC ENDS HERE ====
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
